@@ -12,7 +12,6 @@ class DODGEBALL_API AEnemyCharacter : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
 	AEnemyCharacter();
 
 private:
@@ -22,19 +21,31 @@ private:
 protected:
 	ACharacter* PlayerCharacter;
 
+	// Whether the Enemy character can see the player this frame
+	bool bCanSeePlayer = false;
+	// Whether the Enemy character can see the player previous fram
+	bool bPreviousCanSeePlayer = false;
+
+	FTimerHandle ThrowTimerHandle;
+	float ThrowingInterval = 2.f;
+	float ThrowingDelay = 0.5f;
+
+	void ThrowDodgeball();
+
+public:
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Dodgeball)
+	TSubclassOf<class ADodgeballProjectile> DodgeballClass;
+
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 public:
-	void LookAtActor(AActor* TargetActor);
+	bool LookAtActor(AActor* TargetActor);
 
 	bool CanSeeActor(const AActor* TargetActor) const;
 

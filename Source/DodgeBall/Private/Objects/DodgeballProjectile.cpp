@@ -20,7 +20,7 @@ ADodgeballProjectile::ADodgeballProjectile()
 	// For receving OnHit event
 	SphereComponent->SetNotifyRigidBodyCollision(true);
 	SphereComponent->OnComponentHit.AddDynamic(this, &ADodgeballProjectile::OnHit);
-	
+
 	RootComponent = SphereComponent;
 
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement"));
@@ -32,6 +32,7 @@ void ADodgeballProjectile::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	SetLifeSpan(5.f);
 }
 
 // Called every frame
