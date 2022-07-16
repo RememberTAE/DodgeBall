@@ -5,6 +5,7 @@
 #include "DodgeBall/DodgeBallCharacter.h"
 
 #include "Components/SphereComponent.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 
 // Sets default values
 ADodgeballProjectile::ADodgeballProjectile()
@@ -21,6 +22,9 @@ ADodgeballProjectile::ADodgeballProjectile()
 	SphereComponent->OnComponentHit.AddDynamic(this, &ADodgeballProjectile::OnHit);
 	
 	RootComponent = SphereComponent;
+
+	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("Projectile Movement"));
+	ProjectileMovement->InitialSpeed = 1500.f;
 }
 
 // Called when the game starts or when spawned

@@ -19,6 +19,9 @@ private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Dodgeball, meta = (AllowPrivateAccess = "true"))
 	class USphereComponent* SphereComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Dodgeball, meta = (AllowPrivateAccess = "true"))
+	class UProjectileMovementComponent* ProjectileMovement;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
