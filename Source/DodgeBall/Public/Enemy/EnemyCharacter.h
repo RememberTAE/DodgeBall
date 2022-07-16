@@ -15,6 +15,10 @@ public:
 	// Sets default values for this character's properties
 	AEnemyCharacter();
 
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = LookAt, meta = (AllowPrivateAccess = "true"))
+	USceneComponent* SightSource;
+
 protected:
 	ACharacter* PlayerCharacter;
 
