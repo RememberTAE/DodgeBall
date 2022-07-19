@@ -83,7 +83,7 @@ bool AEnemyCharacter::CanSeeActor(const AActor* TargetActor) const
 	FVector End = TargetActor->GetActorLocation();
 
 	//ECollisionChannel Channel = ECollisionChannel::ECC_Visibility;
-	ECollisionChannel Channel = ECollisionChannel::ECC_GameTraceChannel11;
+	ECollisionChannel Channel = ECollisionChannel::ECC_GameTraceChannel1;
 	FCollisionQueryParams QueryParams;
 
 	QueryParams.AddIgnoredActor(this);
