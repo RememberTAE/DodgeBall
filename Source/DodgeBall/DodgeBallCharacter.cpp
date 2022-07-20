@@ -2,6 +2,7 @@
 
 #include "DodgeBallCharacter.h"
 #include "Components/HealthComponent.h"
+#include "Player/DodgeballPlayerController.h"
 
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -103,5 +104,10 @@ void ADodgeBallCharacter::MoveRight(float Value)
 
 void ADodgeBallCharacter::OnDeath_Implementation()
 {
+	ADodgeballPlayerController* PlayerController = Cast<ADodgeballPlayerController>(GetController());
+	if (PlayerController != nullptr)
+	{
+		PlayerController->ShowRestartWidget();
+	}
 	UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
 }

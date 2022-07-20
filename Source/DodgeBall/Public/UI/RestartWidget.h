@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "RestartWidge.generated.h"
+#include "RestartWidget.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class DODGEBALL_API URestartWidge : public UUserWidget
+class DODGEBALL_API URestartWidget : public UUserWidget
 {
 	GENERATED_BODY()
 	
