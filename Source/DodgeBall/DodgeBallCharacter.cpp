@@ -9,6 +9,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 //////////////////////////////////////////////////////////////////////////
 // ADodgeBallCharacter
@@ -98,4 +99,9 @@ void ADodgeBallCharacter::MoveRight(float Value)
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
 	}
+}
+
+void ADodgeBallCharacter::OnDeath_Implementation()
+{
+	UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
 }

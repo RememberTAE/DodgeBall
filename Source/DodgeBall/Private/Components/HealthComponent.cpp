@@ -2,6 +2,7 @@
 
 
 #include "Components/HealthComponent.h"
+#include "Interfaces/HealthInterface.h"
 
 #include "Kismet/KismetSystemLibrary.h"
 
@@ -40,7 +41,10 @@ void UHealthComponent::LoseHealth(float Amount)
 	if (Health <= 0.f)
 	{
 		Health = 0.f;
-		UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
+		if (GetOwner()->Implements<UHealthInterface>())
+		{
+			IHealthInterface::Execute_OnDeath(GetOwner());
+		}
 	}
 }
 

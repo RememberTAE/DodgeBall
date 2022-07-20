@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Public/Interfaces/HealthInterface.h"
 #include "DodgeBallCharacter.generated.h"
 
 UCLASS(config=Game)
-class ADodgeBallCharacter : public ACharacter
+class ADodgeBallCharacter : public ACharacter, public IHealthInterface
 {
 	GENERATED_BODY()
 
@@ -40,6 +41,9 @@ protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
+
+public:
+	virtual void OnDeath_Implementation() override;
 
 public:
 	/** Returns CameraBoom subobject **/
