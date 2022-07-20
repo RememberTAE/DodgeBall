@@ -23,6 +23,10 @@ private:
 	class UProjectileMovementComponent* ProjectileMovement;
 
 protected:
+	UPROPERTY(EditAnywhere, Category = Damage)
+	float Damage = 35.f;
+
+protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 

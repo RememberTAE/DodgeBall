@@ -25,6 +25,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input)
 	float TurnRateGamepad;
 
+private:
+	class UHealthComponent* HealthComponent;
+
 protected:
 
 	/** Called for forwards/backward input */
