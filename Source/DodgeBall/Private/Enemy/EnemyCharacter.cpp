@@ -3,10 +3,10 @@
 
 #include "Enemy/EnemyCharacter.h"
 #include "Objects/DodgeballProjectile.h"
+#include "FunctionLibrary/DodgeballFunctionLibrary.h"
 
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/GameplayStatics.h"
-#include "DrawDebugHelpers.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 
 AEnemyCharacter::AEnemyCharacter()
@@ -58,7 +58,10 @@ bool AEnemyCharacter::LookAtActor(AActor* TargetActor)
 	if (TargetActor == nullptr)
 		return false;
 
-	if (CanSeeActor(TargetActor))
+	const TArray<const AActor*> IgnoreActors = { this, TargetActor };
+
+	//if (CanSeeActor(TargetActor))
+	if(UDodgeballFunctionLibrary::CanSeeActor(GetWorld(), SightSource->GetComponentLocation(), TargetActor, IgnoreActors))
 	{
 		FVector Start = GetActorLocation();
 		FVector End = TargetActor->GetActorLocation();
