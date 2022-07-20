@@ -4,10 +4,14 @@ using UnrealBuildTool;
 
 public class DodgeBall : ModuleRules
 {
-	public DodgeBall(ReadOnlyTargetRules Target) : base(Target)
-	{
-		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+    public DodgeBall(ReadOnlyTargetRules Target) : base(Target)
+    {
+        PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay" });
-	}
+        PublicDependencyModuleNames.AddRange(new string[] 
+        {
+            "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay",
+            "UMG", "Slate", "SlateCore"
+        });
+    }
 }
