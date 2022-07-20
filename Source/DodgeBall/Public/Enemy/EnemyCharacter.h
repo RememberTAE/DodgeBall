@@ -15,11 +15,14 @@ public:
 	AEnemyCharacter();
 
 private:
+	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = LookAt, meta = (AllowPrivateAccess = "true"))
+	//USceneComponent* SightSource;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = LookAt, meta = (AllowPrivateAccess = "true"))
-	USceneComponent* SightSource;
+	class ULookAtActorComponent* LookAtActorComponent;
 
 protected:
-	ACharacter* PlayerCharacter;
+	//ACharacter* PlayerCharacter;
 
 	// Whether the Enemy character can see the player this frame
 	bool bCanSeePlayer = false;
@@ -45,8 +48,8 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 public:
-	bool LookAtActor(AActor* TargetActor);
+	//bool LookAtActor(AActor* TargetActor);
 
-	bool CanSeeActor(const AActor* TargetActor) const;
+	//bool CanSeeActor(const AActor* TargetActor) const;
 
 };
