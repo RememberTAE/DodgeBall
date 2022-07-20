@@ -109,5 +109,5 @@ void ADodgeBallCharacter::OnDeath_Implementation()
 	{
 		PlayerController->ShowRestartWidget();
 	}
-	UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
+	//UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
 }
