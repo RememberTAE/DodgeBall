@@ -27,6 +27,13 @@ protected:
 	float Damage = 35.f;
 
 protected:
+	UPROPERTY(EditAnywhere, Category = Sound)
+	class USoundBase* BounceSound;
+
+	UPROPERTY(EditAnywhere, Category = Sound)
+	class USoundAttenuation* BounceSoundAttenuation;
+
+protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
