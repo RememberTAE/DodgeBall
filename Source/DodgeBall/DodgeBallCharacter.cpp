@@ -111,3 +111,12 @@ void ADodgeBallCharacter::OnDeath_Implementation()
 	}
 	//UKismetSystemLibrary::QuitGame(this, nullptr, EQuitPreference::Quit, true);
 }
+
+void ADodgeBallCharacter::OnTakeDamage_Implementation()
+{
+	ADodgeballPlayerController* PlayerController = Cast<ADodgeballPlayerController>(GetController());
+	if (PlayerController != nullptr)
+	{
+		PlayerController->UpdateHealthPercent(HealthComponent->GetHealthPercent());
+	}
+}
