@@ -58,6 +58,17 @@ void ADodgeballProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* Othe
 		{
 			HealthComponent->LoseHealth(Damage);
 		}
+
+		if (HitParticles != nullptr)
+		{
+			UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), HitParticles, GetActorTransform());
+		}
+
+		if (DamageSound != nullptr)
+		{
+			UGameplayStatics::PlaySound2D(this, DamageSound, 10.0f, FMath::RandRange(0.7f, 1.3f));
+		}
+
 		Destroy();
 	}
 }
